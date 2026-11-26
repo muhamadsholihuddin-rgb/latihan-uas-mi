@@ -46,7 +46,7 @@ function home(){
   for(let k=1;k<=6;k++){const n=DATA.filter(m=>m.kelas===k).length;
     h+=`<button class="kelas k${k}" onclick="pilihKelas(${k})">Kelas ${k}<small>${n} mata pelajaran</small></button>`;}
   h+='</div></div>';
-  if(!unlocked){h+=`<div class="card"><h3>Punya Kode Akses?</h3><input id="kode" placeholder="Masukkan kode akses"><button class="utama" onclick="buka()">Buka Semua Soal</button><a class="beli" href="https://lynk.id/ceritamahda" target="_blank" rel="noopener">Beli Kode Akses</a><p style="color:#64748b">Versi gratis: materi + 3 soal pertama tiap mata pelajaran.</p></div>`;}
+  if(!unlocked){h+=`<div class="card"><h3>Punya Kode Akses?</h3><input id="kode" placeholder="Masukkan kode akses"><button class="utama" onclick="buka()">Buka Semua Soal</button><a class="beli" href="https://lynk.id/ceritamahda/yx1wgvkyndj8" target="_blank" rel="noopener">Beli Kode Akses</a><p style="color:#64748b">Versi gratis: materi + 3 soal pertama tiap mata pelajaran.</p></div>`;}
   else h+='<div class="card">Semua soal terbuka. Selamat belajar!</div>';
   app.innerHTML=h;
 }
@@ -72,7 +72,7 @@ function jawab(j){if(state.dijawab)return;state.dijawab=true;const s=state.modul
   document.getElementById('bahas').innerHTML=`<div class="bahas"><b>${benar?'Hebat, jawabanmu benar!':'Belum tepat, tidak apa-apa.'}</b><br>${esc(s.bahas)}</div><button class="utama" style="margin-top:12px" onclick="state.idx++;soal()">Lanjut</button>`;}
 function selesai(batas){const m=state.modul;const bintang=state.skor===batas?3:(state.skor>=Math.ceil(batas*0.6)?2:1);
   let h=`<div class="card"><div class="bintang">${'★'.repeat(bintang)}${'☆'.repeat(3-bintang)}</div><div class="skor">${state.skor} / ${batas}</div><p style="text-align:center">Kamu hebat sudah berlatih ${esc(m.mapel)}!</p>`;
-  if(!unlocked&&m.soal.length>batas)h+=`<p style="text-align:center">Masih ada ${m.soal.length-batas} soal lagi di mata pelajaran ini. Buka semuanya dengan kode akses.</p><a class="beli" href="https://lynk.id/ceritamahda" target="_blank" rel="noopener">Beli Kode Akses</a>`;
+  if(!unlocked&&m.soal.length>batas)h+=`<p style="text-align:center">Masih ada ${m.soal.length-batas} soal lagi di mata pelajaran ini. Buka semuanya dengan kode akses.</p><a class="beli" href="https://lynk.id/ceritamahda/yx1wgvkyndj8" target="_blank" rel="noopener">Beli Kode Akses</a>`;
   h+=`<button class="utama" style="margin-top:12px" onclick="pilihKelas(${state.kelas})">Pilih Mata Pelajaran Lain</button></div>`;app.innerHTML=h;}
 async function buka(){const v=document.getElementById('kode').value.trim().toUpperCase();
   const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(v));
